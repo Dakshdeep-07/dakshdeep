@@ -24,44 +24,12 @@ export type Budget = {
 }
 
 export function DashboardPage() {
-  const [transactions, setTransactions] = useState<Transaction[]>([
-    {
-      id: "1",
-      description: "Salary",
-      amount: 3000,
-      type: "income",
-      category: "Salary",
-      date: "2025-04-01",
-    },
-    {
-      id: "2",
-      description: "Rent",
-      amount: 1200,
-      type: "expense",
-      category: "Housing",
-      date: "2025-04-05",
-    },
-    {
-      id: "3",
-      description: "Groceries",
-      amount: 150,
-      type: "expense",
-      category: "Food",
-      date: "2025-04-10",
-    },
-    {
-      id: "4",
-      description: "Freelance Work",
-      amount: 500,
-      type: "income",
-      category: "Freelance",
-      date: "2025-04-15",
-    },
-  ])
+  // Initialize with empty transactions so all financial values start at $0
+  const [transactions, setTransactions] = useState<Transaction[]>([])
 
   const [budgets, setBudgets] = useState<Budget[]>([
-    { category: "Housing", limit: 1500, spent: 1200 },
-    { category: "Food", limit: 400, spent: 150 },
+    { category: "Housing", limit: 1500, spent: 0 },
+    { category: "Food", limit: 400, spent: 0 },
     { category: "Transportation", limit: 200, spent: 0 },
     { category: "Entertainment", limit: 150, spent: 0 },
     { category: "Utilities", limit: 300, spent: 0 },
